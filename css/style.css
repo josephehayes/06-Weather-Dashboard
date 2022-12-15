@@ -13,4 +13,5 @@
 
 .history-item:hover {
     cursor: pointer;
+    text-decoration: underline;
 }

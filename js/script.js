@@ -20,6 +20,7 @@ function getWeather(city) {
                 if (!searchHistory.includes(city)) {
                     searchHistory.push(city);
                     localStorage.setItem("searchHist", JSON.stringify(searchHistory));
+                    historyCard.innerHTML = "";
                     displayHistory();
                 }
                 
@@ -43,19 +44,34 @@ function getWeather(city) {
 }
 
 function displayHistory() {
-    let output = "";
+    // let output = "";
+    // searchHistory.forEach(city => {
+    //     output += "<p class='history-item' onclick=getWeather('" + city + "')>" + city + "</p>";
+    // })
+    // historyCard.innerHTML = output;
     searchHistory.forEach(city => {
-        output += "<p class='history-item' onclick=getWeather('" + city + "')>" + city + "</p>";
+        let historyItem = document.createElement("p");
+        historyItem.textContent = city;
+        historyItem.id = city;
+        historyItem.className = 'history-item';
+        historyCard.append(historyItem)
     })
-    historyCard.innerHTML = output;
 }
 
 searchInput.addEventListener("keydown", e => {
     if (e.code === "Enter") {
         searchVal = searchInput.value ?? "";
         getWeather(searchVal);
+        searchInput.value = "";
     }
 })
+
+historyCard.addEventListener("click", e => {
+    if (e.target.id) {
+        getWeather(e.target.id);
+    }
+})
+
 
 // function main() {
 //     localStorage.clear()
