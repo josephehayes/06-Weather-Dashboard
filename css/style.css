@@ -1,17 +1,64 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
+*{
+    font-family: Garamond;
+    font-size: 20px;
+}
+
 .navbar {
-    height: 10vh;
+    display: flex;
+    height: 20vh;
     max-height: 100px;
+    justify-content: center;
     align-items: center;
-    text-align: center;
+    background-color: navy;
+    background: linear-gradient(45deg, rgb(162, 255, 197), rgb(61, 61, 61));
+
+}
+
+.weather-header {
+    color: rgb(255, 255, 255);
+    font-size: 2em;
 }
 
 .history-item {
     color: rgb(144, 144, 253);
+    background-color: lightgray;
+    width: 80%;
+    text-align: center;
 }
 
 .history-item:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.search-header {
+    text-align: center;
+    font-size: 1.25em;
+}
+
+.forecast-header { 
+    font-size: 1.25em;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.search-history-container {
+    font-size: 1.25em;
+    border-bottom: black solid 2px;
+}
+
+.today-out-other-container {
+    width: 100%;
+    min-width: fit-content;
+    justify-content: space-around;
+}
+
+.search-today-output > * {
+    width: 100%;
+}
+
+.today-out-date {
+    width: 100%
 }

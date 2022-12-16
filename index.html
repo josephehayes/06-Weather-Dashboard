@@ -10,41 +10,60 @@
 </head>
 
 <body>
-    <header>Why do you want to know, weather boy?</header>
-    <nav class="navbar">
-        <div class="navbar-item"> Weather Dashboard </div>
+    <nav class="navbar mb-5">
+        <div class="navbar-item is-12 weather-header"> Weather Dashboard </div>
     </nav>
     <main>
         <div class="columns">
-        <div class="column is-one-third" id="left-col-container">
-            <div class="card pb-5">Search
-            <input class="input is-primary is-rounded" type="text" id="city-search"></input>
-        </div>
-            <div class="search-history-container card is-flex is-justify-content-center">Search History</div>
-            <div class="card is-flex is-flex-direction-column is-align-items-center" id="search-history"></div>
-        </div>
-        <div class="column" id="right-col-container">
-            <div class="card pb-3">M1: Search Result</div>
-            <div class="card pb-3">M2: 5 day forecast cards</div>
-            <div class="columns" id="card-container">
-                <div class="column">
-                    <div class="card forecast-card">M3.1: Card 1</div>
+            <div class="column is-one-third" id="left-col-container">
+                <div class="card pb-5 search-header">Search
+                    <input class="input is-primary is-rounded" type="text" id="city-search"
+                        placeholder="City Name"></input>
                 </div>
-                <div class="column">
-                    <div class="card forecast-card">M3.2: Card 2</div>
+                <div class="search-history-container card is-flex is-justify-content-center">Search History</div>
+                <div class="card is-flex is-flex-direction-column-reverse is-align-items-center" id="search-history">
                 </div>
-                <div class="column">
-                    <div class="card forecast-card">M3.3: Card 3</div>
+            </div>
+            <div class="column" id="right-col-container">
+                <div class="card pb-3 mb-5">Search Result</div>
+                <div id="search-output-container" class="card is-flex is-align-items-center is-flex-direction-column">
+                    <div class="today-out-date-container is-flex">
+                        <div class="search-today-output today-out-date is-flex is-justify-content-center"></div>
+                    </div>
+                    <div class="today-out-other-container is-flex is-justify-space-between is-align-items-center is-text-align-center mb-2">
+                        <div class="search-today-output today-out-img is-flex is-justify-space-between is-align-items-center"></div>
+                        <div class="search-today-output today-out-temp is-flex is-justify-space-between is-align-items-center"></div>
+                        <div class="search-today-output today-out-humid is-flex is-justify-space-between is-align-items-center"></div>
+                        <div class="search-today-output today-out-wind is-flex is-justify-space-between is-align-items-center"></div>
+                    </div>
                 </div>
-                <div class="column">
-                    <div class="card forecast-card">M3.4: Card 4</div>
-                </div>
-                <div class="column">
-                    <div class="card forecast-card">M3.5: Card 5</div>
+                
+                <div class="pt-5 forecast-header">5-day Forecast</div>
+                <div class="columns" id="card-container">
+
+                    <div class="column">
+                        <div class="card is-flex is-justify-content-center is-flex-direction-column forecast-card">Day 1
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card is-flex is-justify-content-center is-flex-direction-column forecast-card">Day 2
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card is-flex is-justify-content-center is-flex-direction-column forecast-card">Day 3
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card is-flex is-justify-content-center is-flex-direction-column forecast-card">Day 4
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card is-flex is-justify-content-center is-flex-direction-column forecast-card">Day 5
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </main>
 </body>
 <script src="js/script.js"></script>
