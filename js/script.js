@@ -7,6 +7,7 @@ let curCard;
 let searchVal;
 
 const fiveDayCards = document.getElementsByClassName("forecast-card");
+//const todayCard = document.querySelector(".main-forecast-card");
 const searchInput = document.getElementById("city-search");
 const historyCard = document.getElementById("search-history");
 
@@ -23,7 +24,7 @@ function getWeather(city) {
                     historyCard.innerHTML = "";
                     displayHistory();
                 }
-                
+
                 curCard = 0;
 
                 //every 8th result is noon of each day
@@ -39,25 +40,23 @@ function getWeather(city) {
                 }
             } else {
                 //City not found
+                searchInput.value = "City Not Found";
             }
         })
 }
 
+//displays the history
 function displayHistory() {
-    // let output = "";
-    // searchHistory.forEach(city => {
-    //     output += "<p class='history-item' onclick=getWeather('" + city + "')>" + city + "</p>";
-    // })
-    // historyCard.innerHTML = output;
     searchHistory.forEach(city => {
         let historyItem = document.createElement("p");
         historyItem.textContent = city;
         historyItem.id = city;
         historyItem.className = 'history-item';
-        historyCard.append(historyItem)
+        historyCard.prepend(historyItem);
     })
 }
 
+//event listener for search field to get data on pressing Enter
 searchInput.addEventListener("keydown", e => {
     if (e.code === "Enter") {
         searchVal = searchInput.value ?? "";
@@ -66,16 +65,18 @@ searchInput.addEventListener("keydown", e => {
     }
 })
 
+//event listener for search history to pull weather
 historyCard.addEventListener("click", e => {
     if (e.target.id) {
         getWeather(e.target.id);
     }
 })
 
+//defines actions on page load
+function main() {
+    localStorage.clear();
+    displayHistory();
+}
 
-// function main() {
-//     localStorage.clear()
-// }
-
-// main();
-displayHistory();
+//runs main
+main();
