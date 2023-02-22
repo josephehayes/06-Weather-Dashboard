@@ -16,7 +16,6 @@ function getWeather(city) {
     fetch(weatherApi + "units=imperial&q=" + city + apiKey)
         .then(response => response.json())
         .then(result => {
-            console.table(result)
             if (result.cod != 404) { //if city exists
 
                 city = city.toUpperCase();
